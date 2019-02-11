@@ -7,9 +7,6 @@ import logging
 from logging.config import dictConfig
 import time
 
-class DebugConf(object):
-    debug_flag = True
-
 class LogConf(object):
     def __init__(self, path):
         """采用字典方式配置logging的配置，下面初始化的内容既是配置参数"""
