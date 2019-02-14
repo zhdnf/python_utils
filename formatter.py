@@ -7,7 +7,7 @@ regex = "[u4e00-u9fa5]|\-"
 
 re = re.compile(regex)
 
-class Formatter:
+class Formatter(object):
 
     # num为数据的总数, args为显示列名的str
     def __init__(self, num, args=[]):
