@@ -3,9 +3,8 @@
 import logging
 import logging.handlers
 
-class MyLog:
-
-# Logger,Handler,Formatter
+class MyLog(object):
+    # Logger,Handler,Formatter
     def __init__(self):
         self.log = logging
         self.logger = None
@@ -33,6 +32,7 @@ class MyLog:
 
     def add_logger_handler(self):
         self.logger.addHandler(self.handler)
+
 
 def create_log(name, path, level):
     
