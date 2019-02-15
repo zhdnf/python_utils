@@ -2,7 +2,6 @@ import time
 # 阻塞
 from apscheduler.schedulers.blocking import BlockingScheduler
 from apscheduler.events import EVENT_JOB_EXECUTED, EVENT_JOB_ERROR
-import logging
 
 # 单任务阻塞
 class Apscheduler(object):
