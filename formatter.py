@@ -80,8 +80,7 @@ class Formatter(object):
 
         # 中文显示需要的数据 
         flag = False    # 中文是否被显示
-        arg_change = "" # 记录显示中文所在列名
-        num_change = 0  # 记录中文被替换的字符数
+        change = {} # key记录显示中文的所在列名,value记录中文被替换的字符数
 
         for arg in self.args:
             print_dict[arg]=""
@@ -97,14 +96,14 @@ class Formatter(object):
                     # 显示中文
                     for arg in self.args:
                         if k == arg:
-                            arg_change = arg
                             
                             num_re = len(re.findall(v))
                             num_words = (num_bytes - num_re)//3
-                            num_change = num_words
                             
+                            change[arg] = num_words
+
                             # 改变该行数据
-                            self.lens[arg] = self.lens[arg] - num_change
+                            self.lens[arg] = self.lens[arg] - num_words
                             
                             flag = True
 
@@ -121,7 +120,8 @@ class Formatter(object):
         
         if flag == True:
             # 恢复原来的显示
-            self.lens[arg_change] = self.lens[arg_change] + num_change
+            for k, v in change.items():
+                self.lens[k] = self.lens[k] + v
             # 恢复原来的string2
             self.get_format_string2()
 
