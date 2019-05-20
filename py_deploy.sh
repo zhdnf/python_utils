@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 :<<EOF
-此脚本用于python3环境的安装部署，依赖NE工具机提供python安装包。
+此脚本用于python3环境的安装部署
         - 不兼容pyenv
 EOF
 
